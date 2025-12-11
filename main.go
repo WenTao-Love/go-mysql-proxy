@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/gogoods/mysql-proxy/conf"
 	"time"
+
+	"github.com/gogoods/mysql-proxy/conf"
 
 	"github.com/gogoods/mysql-proxy/chat"
 )
@@ -30,24 +31,24 @@ func main() {
 	runNew()
 }
 
-func runOld() {
-
-	flag.Parse()
-
-	cmdChan := make(chan chat.Cmd)
-	cmdResultChan := make(chan chat.CmdResult)
-	connStateChan := make(chan chat.ConnState)
-	appReadyChan := make(chan bool)
-
-	hub := chat.NewHub(cmdChan, cmdResultChan, connStateChan)
-
-	go hub.Run()
-	go runHttpServerOld(hub)
-	go appReadyInfo(appReadyChan)
-
-	p := MySQLProxyServer{cmdChan, cmdResultChan, connStateChan, appReadyChan, *mysqlAddr, *proxyAddr}
-	p.run()
-}
+//func runOld() {
+//
+//	flag.Parse()
+//
+//	cmdChan := make(chan chat.Cmd)
+//	cmdResultChan := make(chan chat.CmdResult)
+//	connStateChan := make(chan chat.ConnState)
+//	appReadyChan := make(chan bool)
+//
+//	hub := chat.NewHub(cmdChan, cmdResultChan, connStateChan)
+//
+//	go hub.Run()
+//	go runHttpServerOld(hub)
+//	go appReadyInfo(appReadyChan)
+//
+//	p := MySQLProxyServer{cmdChan, cmdResultChan, connStateChan, appReadyChan, *mysqlAddr, *proxyAddr}
+//	p.run()
+//}
 
 func runNew() {
 	flag.Parse()
