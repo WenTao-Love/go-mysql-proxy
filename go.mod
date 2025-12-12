@@ -11,7 +11,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
-require github.com/larkwins/x v1.2.1
+require github.com/larkwins/x v1.2.3
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect

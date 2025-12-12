@@ -1,12 +1,13 @@
 package conf
 
 import (
-	//"github.com/gogoods/x/file"
-	"github.com/larkwins/x/file"
-	"gopkg.in/yaml.v3"
 	"log"
 	"os"
 	"sync"
+
+	//"github.com/gogoods/x/file"
+	"github.com/larkwins/x/file"
+	"gopkg.in/yaml.v3"
 )
 
 type ProxyConfig struct {
