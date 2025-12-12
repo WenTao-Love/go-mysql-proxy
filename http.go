@@ -2,11 +2,15 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/gogoods/mysql-proxy/conf"
+	"github.com/olekukonko/tablewriter/tw"
+
 	"log"
 	"net/http"
 
 	"encoding/json"
+
 	"github.com/gogoods/mysql-proxy/chat"
 	"github.com/gorilla/websocket"
 	"github.com/olekukonko/tablewriter"
@@ -68,11 +72,15 @@ func runHttpServerOld(hub *chat.Hub) {
 		}
 
 		if len(columns) > 0 {
-			table := tablewriter.NewWriter(w)
-			table.SetAutoFormatHeaders(false)
-			table.SetColWidth(1000)
-			table.SetHeader(columns)
-			table.AppendBulk(rows)
+			table := tablewriter.NewTable(w,
+				tablewriter.WithConfig(tablewriter.Config{
+					Header: tw.CellConfig{Formatting: tw.CellFormatting{
+						AutoFormat: tw.Off,
+					}},
+					MaxWidth: 1000,
+				}))
+			table.Header(columns)
+			table.Bulk(rows)
 			table.Render()
 		} else {
 			fmt.Fprint(w, "Empty response")
@@ -136,11 +144,15 @@ func addProxyRoute(hub *chat.Hub, proxyAlias string) {
 		}
 
 		if len(columns) > 0 {
-			table := tablewriter.NewWriter(w)
-			table.SetAutoFormatHeaders(false)
-			table.SetColWidth(1000)
-			table.SetHeader(columns)
-			table.AppendBulk(rows)
+			table := tablewriter.NewTable(w,
+				tablewriter.WithConfig(tablewriter.Config{
+					Header: tw.CellConfig{Formatting: tw.CellFormatting{
+						AutoFormat: tw.Off,
+					}},
+					MaxWidth: 1000,
+				}))
+			table.Header(columns)
+			table.Bulk(rows)
 			table.Render()
 		} else {
 			fmt.Fprint(w, "Empty response")

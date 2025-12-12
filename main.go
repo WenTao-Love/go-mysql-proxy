@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	proxyAddr  = flag.String("proxy", "127.0.0.1:4041", "Proxy <host>:<port>")
-	mysqlAddr  = flag.String("mysql", "127.0.0.1:3306", "MySQL <host>:<port>")
+	//proxyAddr  = flag.String("proxy", "127.0.0.1:4041", "Proxy <host>:<port>")
+	//mysqlAddr  = flag.String("mysql", "127.0.0.1:3306", "MySQL <host>:<port>")
 	guiAddr    = flag.String("gui", "127.0.0.1:9999", "Web UI <host>:<port>")
 	useLocalUI = flag.Bool("use-local", false, "Use local UI instead of embed")
 	mysqlDsn   = flag.String("mysql-dsn", "", "MySQL DSN for query execution capabilities")
@@ -20,12 +20,12 @@ var (
 	config = flag.String("config-file", "./conf/config.yaml", "Specify a config file")
 )
 
-func appReadyInfo(appReadyChan chan bool) {
-	<-appReadyChan
-	time.Sleep(1 * time.Second)
-	fmt.Printf("Forwarding queries from `%s` to `%s` \n", *proxyAddr, *mysqlAddr)
-	fmt.Printf("Web gui available at `http://%s` \n", *guiAddr)
-}
+//func appReadyInfo(appReadyChan chan bool) {
+//	<-appReadyChan
+//	time.Sleep(1 * time.Second)
+//	fmt.Printf("Forwarding queries from `%s` to `%s` \n", *proxyAddr, *mysqlAddr)
+//	fmt.Printf("Web gui available at `http://%s` \n", *guiAddr)
+//}
 
 func main() {
 	runNew()
@@ -61,7 +61,11 @@ func runNew() {
 		}
 		go runProxy(proxy)
 	}
-	runServer(conf.Config().Proxies, conf.Config().GUI, !conf.Config().UseEmbedUI)
+	_config := conf.Config()
+	if _config.UseGUI {
+		runServer(_config.Proxies, _config.GUI, !_config.UseEmbedUI)
+	}
+
 	select {}
 }
 
