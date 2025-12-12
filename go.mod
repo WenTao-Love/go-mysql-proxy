@@ -11,7 +11,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 )
 
-require github.com/larkwins/x v1.2.3
+//require github.com/larkwins/x v1.2.3
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
@@ -30,7 +30,5 @@ require (
 	golang.org/x/sys v0.39.0 // indirect
 )
 
-replace (
-	github.com/gogoods/x v1.2.3 => github.com/larkwins/x v1.2.3
-	github.com/lyft/protoc-gen-validate v0.0.13 => github.com/bufbuild/protoc-gen-validate v1.3.0
-)
+//github.com/gogoods/x v1.2.3 => github.com/larkwins/x v1.2.3
+//replace github.com/lyft/protoc-gen-validate v0.0.13 => github.com/bufbuild/protoc-gen-validate v1.3.0
