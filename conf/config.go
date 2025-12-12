@@ -21,6 +21,7 @@ type ProxyConfig struct {
 type GlobalConfig struct {
 	GUI        string         `yaml:"gui"`
 	UseGUI     bool           `yaml:"use_gui"`
+	AllowIps   []string       `yaml:"allow_ips"`
 	UseEmbedUI bool           `yaml:"use_embed_ui"`
 	Proxies    []*ProxyConfig `yaml:"proxies"`
 }

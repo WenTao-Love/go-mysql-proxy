@@ -1,6 +1,11 @@
 gui: "127.0.0.1:9999"
 use_gui: false
 use_embed_ui: false
+# only allow this ip list ip to connect kingshard
+# support ip and ip segment
+#allow_ips : 127.0.0.1,192.168.15.0/24
+allow_ips:
+  - 127.0.0.1
 proxies:
   - alias: db1
     enabled: true
