@@ -4,12 +4,14 @@ go 1.24.0
 
 require (
 	github.com/go-sql-driver/mysql v1.9.3
-	github.com/gogoods/x v1.2.3
+	//github.com/gogoods/x v1.2.3
 	github.com/gorilla/websocket v1.5.3
 	github.com/olekukonko/tablewriter v1.1.2
 	github.com/stretchr/testify v1.7.1
 	gopkg.in/yaml.v3 v3.0.1
 )
+
+require github.com/larkwins/x v1.2.1
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
@@ -30,5 +32,5 @@ require (
 
 replace (
 	github.com/gogoods/x v1.2.3 => github.com/larkwins/x v1.2.3
-	github.com/lyft/protoc-gen-validate v0.0.13 => github.com/bufbuild/protoc-gen-validate latest
+	github.com/lyft/protoc-gen-validate v0.0.13 => github.com/bufbuild/protoc-gen-validate v1.3.0
 )
