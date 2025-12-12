@@ -27,3 +27,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/sys v0.39.0 // indirect
 )
+
+replace (
+	github.com/gogoods/x v1.2.3 => github.com/larkwins/x v1.2.3
+	github.com/lyft/protoc-gen-validate v0.0.13 => github.com/bufbuild/protoc-gen-validate latest
+)
