@@ -12,10 +12,11 @@ import (
 )
 
 type ProxyConfig struct {
-	Alias   string `yaml:"alias"`
-	Enabled bool   `yaml:"enabled"`
-	Listen  string `yaml:"listen"`
-	Mysql   string `yaml:"mysql"`
+	Alias       string `yaml:"alias"`
+	Enabled     bool   `yaml:"enabled"`
+	Listen      string `yaml:"listen"`
+	Mysql       string `yaml:"mysql"`
+	ProxyPasswd string `yaml:"proxy_passwd"`
 }
 
 type GlobalConfig struct {

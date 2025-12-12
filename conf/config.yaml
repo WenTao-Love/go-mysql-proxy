@@ -4,13 +4,13 @@ use_embed_ui: false
 # only allow this ip list ip to connect kingshard
 # support ip and ip segment
 #allow_ips : 127.0.0.1,192.168.15.0/24
-allow_ips:
-  - 127.0.0.1
+allow_ips: ["127.0.0.1"]
 proxies:
   - alias: db1
     enabled: true
     listen: "127.0.0.1:58881"
     mysql: "127.0.0.1:3306"
+    proxy_passwd: "test123"
 #  - alias: db2
 #    enabled: true
 #    listen: "127.0.0.1:58882"

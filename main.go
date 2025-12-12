@@ -87,6 +87,6 @@ func runProxy(conf *conf.ProxyConfig) {
 
 	}()
 
-	p := MySQLProxyServer{cmdChan, cmdResultChan, connStateChan, appReadyChan, conf.Mysql, conf.Listen}
+	p := MySQLProxyServer{cmdChan, cmdResultChan, connStateChan, appReadyChan, conf.Mysql, conf.Listen, conf.ProxyPasswd}
 	p.run()
 }
